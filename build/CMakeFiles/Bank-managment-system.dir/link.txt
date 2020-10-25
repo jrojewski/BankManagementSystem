@@ -1,0 +1,2 @@
+/bin/ar qc libBank-managment-system.a  CMakeFiles/Bank-managment-system.dir/Example.cpp.o
+/bin/ranlib libBank-managment-system.a

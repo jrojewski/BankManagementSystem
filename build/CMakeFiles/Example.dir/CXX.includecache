@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/zdunek/Desktop/Bank-managment-system/Example.cpp
+Example.hpp
+/home/zdunek/Desktop/Bank-managment-system/Example.hpp
+
+/home/zdunek/Desktop/Bank-managment-system/Example.hpp
+
