@@ -34,8 +34,8 @@
 /home/zdunek/Desktop/Bank-managment-system/build/tests/CMakeFiles/install/strip.dir
 /home/zdunek/Desktop/Bank-managment-system/build/tests/CMakeFiles/install/local.dir
 /home/zdunek/Desktop/Bank-managment-system/build/tests/CMakeFiles/test.dir
-/home/zdunek/Desktop/Bank-managment-system/build/tests/CMakeFiles/ExampleTests.dir
+/home/zdunek/Desktop/Bank-managment-system/build/tests/CMakeFiles/install.dir
+/home/zdunek/Desktop/Bank-managment-system/build/tests/CMakeFiles/Tmenu_tests.dir
+/home/zdunek/Desktop/Bank-managment-system/build/tests/CMakeFiles/list_install_components.dir
 /home/zdunek/Desktop/Bank-managment-system/build/tests/CMakeFiles/edit_cache.dir
 /home/zdunek/Desktop/Bank-managment-system/build/tests/CMakeFiles/rebuild_cache.dir
-/home/zdunek/Desktop/Bank-managment-system/build/tests/CMakeFiles/install.dir
-/home/zdunek/Desktop/Bank-managment-system/build/tests/CMakeFiles/list_install_components.dir

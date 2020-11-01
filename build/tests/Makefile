@@ -111,28 +111,6 @@ test/fast: test
 
 .PHONY : test/fast
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -154,6 +132,28 @@ list_install_components:
 list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -188,46 +188,46 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-tests/CMakeFiles/ExampleTests.dir/rule:
-	cd /home/zdunek/Desktop/Bank-managment-system/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/ExampleTests.dir/rule
-.PHONY : tests/CMakeFiles/ExampleTests.dir/rule
+tests/CMakeFiles/Tmenu_tests.dir/rule:
+	cd /home/zdunek/Desktop/Bank-managment-system/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/Tmenu_tests.dir/rule
+.PHONY : tests/CMakeFiles/Tmenu_tests.dir/rule
 
 # Convenience name for target.
-ExampleTests: tests/CMakeFiles/ExampleTests.dir/rule
+Tmenu_tests: tests/CMakeFiles/Tmenu_tests.dir/rule
 
-.PHONY : ExampleTests
+.PHONY : Tmenu_tests
 
 # fast build rule for target.
-ExampleTests/fast:
-	cd /home/zdunek/Desktop/Bank-managment-system/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/ExampleTests.dir/build.make tests/CMakeFiles/ExampleTests.dir/build
-.PHONY : ExampleTests/fast
+Tmenu_tests/fast:
+	cd /home/zdunek/Desktop/Bank-managment-system/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/Tmenu_tests.dir/build.make tests/CMakeFiles/Tmenu_tests.dir/build
+.PHONY : Tmenu_tests/fast
 
-ExampleTests.o: ExampleTests.cpp.o
+Tmenu_tests.o: Tmenu_tests.cpp.o
 
-.PHONY : ExampleTests.o
+.PHONY : Tmenu_tests.o
 
 # target to build an object file
-ExampleTests.cpp.o:
-	cd /home/zdunek/Desktop/Bank-managment-system/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/ExampleTests.dir/build.make tests/CMakeFiles/ExampleTests.dir/ExampleTests.cpp.o
-.PHONY : ExampleTests.cpp.o
+Tmenu_tests.cpp.o:
+	cd /home/zdunek/Desktop/Bank-managment-system/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/Tmenu_tests.dir/build.make tests/CMakeFiles/Tmenu_tests.dir/Tmenu_tests.cpp.o
+.PHONY : Tmenu_tests.cpp.o
 
-ExampleTests.i: ExampleTests.cpp.i
+Tmenu_tests.i: Tmenu_tests.cpp.i
 
-.PHONY : ExampleTests.i
+.PHONY : Tmenu_tests.i
 
 # target to preprocess a source file
-ExampleTests.cpp.i:
-	cd /home/zdunek/Desktop/Bank-managment-system/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/ExampleTests.dir/build.make tests/CMakeFiles/ExampleTests.dir/ExampleTests.cpp.i
-.PHONY : ExampleTests.cpp.i
+Tmenu_tests.cpp.i:
+	cd /home/zdunek/Desktop/Bank-managment-system/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/Tmenu_tests.dir/build.make tests/CMakeFiles/Tmenu_tests.dir/Tmenu_tests.cpp.i
+.PHONY : Tmenu_tests.cpp.i
 
-ExampleTests.s: ExampleTests.cpp.s
+Tmenu_tests.s: Tmenu_tests.cpp.s
 
-.PHONY : ExampleTests.s
+.PHONY : Tmenu_tests.s
 
 # target to generate assembly for a file
-ExampleTests.cpp.s:
-	cd /home/zdunek/Desktop/Bank-managment-system/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/ExampleTests.dir/build.make tests/CMakeFiles/ExampleTests.dir/ExampleTests.cpp.s
-.PHONY : ExampleTests.cpp.s
+Tmenu_tests.cpp.s:
+	cd /home/zdunek/Desktop/Bank-managment-system/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/Tmenu_tests.dir/build.make tests/CMakeFiles/Tmenu_tests.dir/Tmenu_tests.cpp.s
+.PHONY : Tmenu_tests.cpp.s
 
 # Help Target
 help:
@@ -242,10 +242,10 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... test"
-	@echo "... ExampleTests"
-	@echo "... ExampleTests.o"
-	@echo "... ExampleTests.i"
-	@echo "... ExampleTests.s"
+	@echo "... Tmenu_tests"
+	@echo "... Tmenu_tests.o"
+	@echo "... Tmenu_tests.i"
+	@echo "... Tmenu_tests.s"
 .PHONY : help
 
 

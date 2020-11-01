@@ -14,11 +14,12 @@ enable_testing()
 add_subdirectory(googletest)
 
 set(Headers
-  Example.hpp
+  Tmenu.hpp
 )
 
 set(Sources
-  Example.cpp
+  main.cpp
+  Tmenu.cpp
 )
 
 add_library(${This} STATIC ${Sources} ${Headers})

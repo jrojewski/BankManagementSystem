@@ -1,8 +1,13 @@
 [
 {
   "directory": "/home/zdunek/Desktop/Bank-managment-system/build",
-  "command": "/bin/c++    -g -fPIC   -std=gnu++11 -o CMakeFiles/Example.dir/Example.cpp.o -c /home/zdunek/Desktop/Bank-managment-system/Example.cpp",
-  "file": "/home/zdunek/Desktop/Bank-managment-system/Example.cpp"
+  "command": "/bin/c++    -g -fPIC   -std=gnu++11 -o CMakeFiles/Example.dir/main.cpp.o -c /home/zdunek/Desktop/Bank-managment-system/main.cpp",
+  "file": "/home/zdunek/Desktop/Bank-managment-system/main.cpp"
+},
+{
+  "directory": "/home/zdunek/Desktop/Bank-managment-system/build",
+  "command": "/bin/c++    -g -fPIC   -std=gnu++11 -o CMakeFiles/Example.dir/Tmenu.cpp.o -c /home/zdunek/Desktop/Bank-managment-system/Tmenu.cpp",
+  "file": "/home/zdunek/Desktop/Bank-managment-system/Tmenu.cpp"
 },
 {
   "directory": "/home/zdunek/Desktop/Bank-managment-system/build/googletest/googlemock",
@@ -26,7 +31,7 @@
 },
 {
   "directory": "/home/zdunek/Desktop/Bank-managment-system/build/tests",
-  "command": "/bin/c++   -isystem /home/zdunek/Desktop/Bank-managment-system/googletest/googletest/include -isystem /home/zdunek/Desktop/Bank-managment-system/googletest/googletest  -g -fPIE   -std=gnu++11 -o CMakeFiles/ExampleTests.dir/ExampleTests.cpp.o -c /home/zdunek/Desktop/Bank-managment-system/tests/ExampleTests.cpp",
-  "file": "/home/zdunek/Desktop/Bank-managment-system/tests/ExampleTests.cpp"
+  "command": "/bin/c++   -isystem /home/zdunek/Desktop/Bank-managment-system/googletest/googletest/include -isystem /home/zdunek/Desktop/Bank-managment-system/googletest/googletest  -g -fPIE   -std=gnu++11 -o CMakeFiles/Tmenu_tests.dir/Tmenu_tests.cpp.o -c /home/zdunek/Desktop/Bank-managment-system/tests/Tmenu_tests.cpp",
+  "file": "/home/zdunek/Desktop/Bank-managment-system/tests/Tmenu_tests.cpp"
 }
 ]

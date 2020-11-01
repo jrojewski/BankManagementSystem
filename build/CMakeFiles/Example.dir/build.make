@@ -77,30 +77,45 @@ include CMakeFiles/Example.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Example.dir/flags.make
 
-CMakeFiles/Example.dir/Example.cpp.o: CMakeFiles/Example.dir/flags.make
-CMakeFiles/Example.dir/Example.cpp.o: ../Example.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdunek/Desktop/Bank-managment-system/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Example.dir/Example.cpp.o"
-	/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Example.dir/Example.cpp.o -c /home/zdunek/Desktop/Bank-managment-system/Example.cpp
+CMakeFiles/Example.dir/main.cpp.o: CMakeFiles/Example.dir/flags.make
+CMakeFiles/Example.dir/main.cpp.o: ../main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdunek/Desktop/Bank-managment-system/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Example.dir/main.cpp.o"
+	/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Example.dir/main.cpp.o -c /home/zdunek/Desktop/Bank-managment-system/main.cpp
 
-CMakeFiles/Example.dir/Example.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Example.dir/Example.cpp.i"
-	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zdunek/Desktop/Bank-managment-system/Example.cpp > CMakeFiles/Example.dir/Example.cpp.i
+CMakeFiles/Example.dir/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Example.dir/main.cpp.i"
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zdunek/Desktop/Bank-managment-system/main.cpp > CMakeFiles/Example.dir/main.cpp.i
 
-CMakeFiles/Example.dir/Example.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Example.dir/Example.cpp.s"
-	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zdunek/Desktop/Bank-managment-system/Example.cpp -o CMakeFiles/Example.dir/Example.cpp.s
+CMakeFiles/Example.dir/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Example.dir/main.cpp.s"
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zdunek/Desktop/Bank-managment-system/main.cpp -o CMakeFiles/Example.dir/main.cpp.s
+
+CMakeFiles/Example.dir/Tmenu.cpp.o: CMakeFiles/Example.dir/flags.make
+CMakeFiles/Example.dir/Tmenu.cpp.o: ../Tmenu.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdunek/Desktop/Bank-managment-system/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Example.dir/Tmenu.cpp.o"
+	/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Example.dir/Tmenu.cpp.o -c /home/zdunek/Desktop/Bank-managment-system/Tmenu.cpp
+
+CMakeFiles/Example.dir/Tmenu.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Example.dir/Tmenu.cpp.i"
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zdunek/Desktop/Bank-managment-system/Tmenu.cpp > CMakeFiles/Example.dir/Tmenu.cpp.i
+
+CMakeFiles/Example.dir/Tmenu.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Example.dir/Tmenu.cpp.s"
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zdunek/Desktop/Bank-managment-system/Tmenu.cpp -o CMakeFiles/Example.dir/Tmenu.cpp.s
 
 # Object files for target Example
 Example_OBJECTS = \
-"CMakeFiles/Example.dir/Example.cpp.o"
+"CMakeFiles/Example.dir/main.cpp.o" \
+"CMakeFiles/Example.dir/Tmenu.cpp.o"
 
 # External object files for target Example
 Example_EXTERNAL_OBJECTS =
 
-libExample.a: CMakeFiles/Example.dir/Example.cpp.o
+libExample.a: CMakeFiles/Example.dir/main.cpp.o
+libExample.a: CMakeFiles/Example.dir/Tmenu.cpp.o
 libExample.a: CMakeFiles/Example.dir/build.make
 libExample.a: CMakeFiles/Example.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zdunek/Desktop/Bank-managment-system/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libExample.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zdunek/Desktop/Bank-managment-system/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libExample.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/Example.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Example.dir/link.txt --verbose=$(VERBOSE)
 

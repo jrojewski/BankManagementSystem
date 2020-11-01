@@ -1,0 +1,3 @@
+/usr/bin/cmake --build /home/zdunek/Desktop/Bank-managment-system/build --config Debug --target all -- -j 4
+
+

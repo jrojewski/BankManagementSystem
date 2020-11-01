@@ -76,5 +76,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "googletest/googlemock/CMakeFiles/gmock.dir/DependInfo.cmake"
   "googletest/googletest/CMakeFiles/gtest_main.dir/DependInfo.cmake"
   "googletest/googletest/CMakeFiles/gtest.dir/DependInfo.cmake"
-  "tests/CMakeFiles/ExampleTests.dir/DependInfo.cmake"
+  "tests/CMakeFiles/Tmenu_tests.dir/DependInfo.cmake"
   )

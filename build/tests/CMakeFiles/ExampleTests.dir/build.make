@@ -77,27 +77,27 @@ include tests/CMakeFiles/ExampleTests.dir/progress.make
 # Include the compile flags for this target's objects.
 include tests/CMakeFiles/ExampleTests.dir/flags.make
 
-tests/CMakeFiles/ExampleTests.dir/ExampleTests.cpp.o: tests/CMakeFiles/ExampleTests.dir/flags.make
-tests/CMakeFiles/ExampleTests.dir/ExampleTests.cpp.o: ../tests/ExampleTests.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdunek/Desktop/Bank-managment-system/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object tests/CMakeFiles/ExampleTests.dir/ExampleTests.cpp.o"
-	cd /home/zdunek/Desktop/Bank-managment-system/build/tests && /bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ExampleTests.dir/ExampleTests.cpp.o -c /home/zdunek/Desktop/Bank-managment-system/tests/ExampleTests.cpp
+tests/CMakeFiles/ExampleTests.dir/Tmenu_tests.cpp.o: tests/CMakeFiles/ExampleTests.dir/flags.make
+tests/CMakeFiles/ExampleTests.dir/Tmenu_tests.cpp.o: ../tests/Tmenu_tests.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdunek/Desktop/Bank-managment-system/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object tests/CMakeFiles/ExampleTests.dir/Tmenu_tests.cpp.o"
+	cd /home/zdunek/Desktop/Bank-managment-system/build/tests && /bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ExampleTests.dir/Tmenu_tests.cpp.o -c /home/zdunek/Desktop/Bank-managment-system/tests/Tmenu_tests.cpp
 
-tests/CMakeFiles/ExampleTests.dir/ExampleTests.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ExampleTests.dir/ExampleTests.cpp.i"
-	cd /home/zdunek/Desktop/Bank-managment-system/build/tests && /bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zdunek/Desktop/Bank-managment-system/tests/ExampleTests.cpp > CMakeFiles/ExampleTests.dir/ExampleTests.cpp.i
+tests/CMakeFiles/ExampleTests.dir/Tmenu_tests.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ExampleTests.dir/Tmenu_tests.cpp.i"
+	cd /home/zdunek/Desktop/Bank-managment-system/build/tests && /bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zdunek/Desktop/Bank-managment-system/tests/Tmenu_tests.cpp > CMakeFiles/ExampleTests.dir/Tmenu_tests.cpp.i
 
-tests/CMakeFiles/ExampleTests.dir/ExampleTests.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ExampleTests.dir/ExampleTests.cpp.s"
-	cd /home/zdunek/Desktop/Bank-managment-system/build/tests && /bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zdunek/Desktop/Bank-managment-system/tests/ExampleTests.cpp -o CMakeFiles/ExampleTests.dir/ExampleTests.cpp.s
+tests/CMakeFiles/ExampleTests.dir/Tmenu_tests.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ExampleTests.dir/Tmenu_tests.cpp.s"
+	cd /home/zdunek/Desktop/Bank-managment-system/build/tests && /bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zdunek/Desktop/Bank-managment-system/tests/Tmenu_tests.cpp -o CMakeFiles/ExampleTests.dir/Tmenu_tests.cpp.s
 
 # Object files for target ExampleTests
 ExampleTests_OBJECTS = \
-"CMakeFiles/ExampleTests.dir/ExampleTests.cpp.o"
+"CMakeFiles/ExampleTests.dir/Tmenu_tests.cpp.o"
 
 # External object files for target ExampleTests
 ExampleTests_EXTERNAL_OBJECTS =
 
-tests/ExampleTests: tests/CMakeFiles/ExampleTests.dir/ExampleTests.cpp.o
+tests/ExampleTests: tests/CMakeFiles/ExampleTests.dir/Tmenu_tests.cpp.o
 tests/ExampleTests: tests/CMakeFiles/ExampleTests.dir/build.make
 tests/ExampleTests: lib/libgtest_maind.a
 tests/ExampleTests: libExample.a

@@ -1,3 +1,3 @@
-ExampleTests 7 0.00596569
+ExampleTests 11 0.005675
+Tmenu_tests 2 0.00848417
 ---
-ExampleTests

@@ -253,44 +253,71 @@ gtest/fast:
 .PHONY : gtest/fast
 
 #=============================================================================
-# Target rules for targets named ExampleTests
+# Target rules for targets named Tmenu_tests
 
 # Build rule for target.
-ExampleTests: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ExampleTests
-.PHONY : ExampleTests
+Tmenu_tests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Tmenu_tests
+.PHONY : Tmenu_tests
 
 # fast build rule for target.
-ExampleTests/fast:
-	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/ExampleTests.dir/build.make tests/CMakeFiles/ExampleTests.dir/build
-.PHONY : ExampleTests/fast
+Tmenu_tests/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/Tmenu_tests.dir/build.make tests/CMakeFiles/Tmenu_tests.dir/build
+.PHONY : Tmenu_tests/fast
 
-Example.o: Example.cpp.o
+Tmenu.o: Tmenu.cpp.o
 
-.PHONY : Example.o
+.PHONY : Tmenu.o
 
 # target to build an object file
-Example.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Example.dir/build.make CMakeFiles/Example.dir/Example.cpp.o
-.PHONY : Example.cpp.o
+Tmenu.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Example.dir/build.make CMakeFiles/Example.dir/Tmenu.cpp.o
+.PHONY : Tmenu.cpp.o
 
-Example.i: Example.cpp.i
+Tmenu.i: Tmenu.cpp.i
 
-.PHONY : Example.i
+.PHONY : Tmenu.i
 
 # target to preprocess a source file
-Example.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Example.dir/build.make CMakeFiles/Example.dir/Example.cpp.i
-.PHONY : Example.cpp.i
+Tmenu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Example.dir/build.make CMakeFiles/Example.dir/Tmenu.cpp.i
+.PHONY : Tmenu.cpp.i
 
-Example.s: Example.cpp.s
+Tmenu.s: Tmenu.cpp.s
 
-.PHONY : Example.s
+.PHONY : Tmenu.s
 
 # target to generate assembly for a file
-Example.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Example.dir/build.make CMakeFiles/Example.dir/Example.cpp.s
-.PHONY : Example.cpp.s
+Tmenu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Example.dir/build.make CMakeFiles/Example.dir/Tmenu.cpp.s
+.PHONY : Tmenu.cpp.s
+
+main.o: main.cpp.o
+
+.PHONY : main.o
+
+# target to build an object file
+main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Example.dir/build.make CMakeFiles/Example.dir/main.cpp.o
+.PHONY : main.cpp.o
+
+main.i: main.cpp.i
+
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Example.dir/build.make CMakeFiles/Example.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Example.dir/build.make CMakeFiles/Example.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -306,14 +333,17 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... Example"
-	@echo "... ExampleTests"
+	@echo "... Tmenu_tests"
 	@echo "... gmock"
 	@echo "... gmock_main"
 	@echo "... gtest"
 	@echo "... gtest_main"
-	@echo "... Example.o"
-	@echo "... Example.i"
-	@echo "... Example.s"
+	@echo "... Tmenu.o"
+	@echo "... Tmenu.i"
+	@echo "... Tmenu.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 

@@ -4,7 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/zdunek/Desktop/Bank-managment-system/Example.cpp" "/home/zdunek/Desktop/Bank-managment-system/build/CMakeFiles/Example.dir/Example.cpp.o"
+  "/home/zdunek/Desktop/Bank-managment-system/Tmenu.cpp" "/home/zdunek/Desktop/Bank-managment-system/build/CMakeFiles/Example.dir/Tmenu.cpp.o"
+  "/home/zdunek/Desktop/Bank-managment-system/main.cpp" "/home/zdunek/Desktop/Bank-managment-system/build/CMakeFiles/Example.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

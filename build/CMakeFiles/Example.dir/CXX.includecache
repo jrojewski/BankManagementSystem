@@ -6,9 +6,19 @@
 
 #IncludeRegexTransform: 
 
-/home/zdunek/Desktop/Bank-managment-system/Example.cpp
-Example.hpp
-/home/zdunek/Desktop/Bank-managment-system/Example.hpp
+/home/zdunek/Desktop/Bank-managment-system/Tmenu.cpp
+Tmenu.hpp
+/home/zdunek/Desktop/Bank-managment-system/Tmenu.hpp
+iostream
+-
 
-/home/zdunek/Desktop/Bank-managment-system/Example.hpp
+/home/zdunek/Desktop/Bank-managment-system/Tmenu.hpp
+string
+-
+
+/home/zdunek/Desktop/Bank-managment-system/main.cpp
+iostream
+-
+Tmenu.hpp
+/home/zdunek/Desktop/Bank-managment-system/Tmenu.hpp
 

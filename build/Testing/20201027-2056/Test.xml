@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20201027-2056-Experimental"
+	Name="(empty)"
+	Generator="ctest-3.17.4"
+	CompilerName=""
+	CompilerVersion=""
+	OSName="Linux"
+	Hostname="pc-66.home"
+	OSRelease="5.8.10-100.fc31.x86_64"
+	OSVersion="#1 SMP Thu Sep 17 17:32:56 UTC 2020"
+	OSPlatform="x86_64"
+	Is64Bits="1"
+	VendorString="GenuineIntel"
+	VendorID="Intel Corporation"
+	FamilyID="6"
+	ModelID="94"
+	ProcessorCacheSize="6144"
+	NumberOfLogicalCPU="2"
+	NumberOfPhysicalCPU="2"
+	TotalVirtualMemory="8091"
+	TotalPhysicalMemory="5938"
+	LogicalProcessorsPerPhysical="1"
+	ProcessorClockFrequency="2592"
+	>
+	<Testing>
+		<StartDateTime>Oct 27 23:01 CET</StartDateTime>
+		<StartTestTime>1603836084</StartTestTime>
+		<TestList>
+			<Test>./tests/Tmenu_tests</Test>
+		</TestList>
+		<Test Status="passed">
+			<Name>Tmenu_tests</Name>
+			<Path>./tests</Path>
+			<FullName>./tests/Tmenu_tests</FullName>
+			<FullCommandLine>/home/zdunek/Desktop/Bank-managment-system/build/tests/Tmenu_tests</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.00430404</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/home/zdunek/Desktop/Bank-managment-system/build/tests/Tmenu_tests</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJyNUEFOwzAQvPsVe0wOtukDOICKOCABSsUpipBJFzdKvFvZGxC8njipqhYEYk4jz2hmvNVI1JGH4DoqSniNHMDuOKD93I6EvV1j6oX39tpRr4Mj5wOS6PSRBIP1zH5AwSSnNMXW+syec6xpW1VfHtFAdehcQfYsnQeexk7QqFof0cDtwC9uWHSkty4y5QmQUPS4/2Y+zcxM1VA93cOMZn4x8zByASdtwcPdDw2KCwip/DscitVkAmFxQ6n+t1rQRb3ldzq/yW+3gOjInPdMqx+vNpubdf7R4jXqC2+FkIY=</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<EndDateTime>Oct 27 23:01 CET</EndDateTime>
+		<EndTestTime>1603836084</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>
