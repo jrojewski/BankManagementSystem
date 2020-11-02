@@ -6,34 +6,36 @@
 
 #include <iostream>
 #include "Tmenu.hpp"
+#include "TcreateUser.hpp"
 
 using namespace std;
-
+/***********************************/
 void runMenu();
-
+/***********************************/
 
 int main() {
-    
+
     runMenu();
 
     return 0;
 }
-
-
 
 void runMenu(){
 
     Tmenu menu;
     menu.showMenu();
 
-    int choice; 
+    TcreateUser addUser;
+
+    int choice;
     cout << " Co wybierasz? " << endl;
     cin >> choice;
 
     switch (choice)
     {
     case 1:
-        cout << "1" << endl;
+        // Create new account.
+        addUser.createUser();
         break;
     case 2:
         cout << "2" << endl;
@@ -52,13 +54,10 @@ void runMenu(){
         break;
     case 7:
         cout << "7" << endl;
-        break;   
-    
+        break;
+
     default:
         cout << "Missing option - try again!\n";
         break;
     }
-
-
-
 }

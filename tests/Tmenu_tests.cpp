@@ -8,13 +8,13 @@
 
 
 TEST(test, test_name){
-    
+
     int x = 10;
     int y = 20;
 
 
     int c = x + y;
-    
+
     // ASSERT_EQ(c, testSum(x, y));
     ASSERT_TRUE(false);
 
