@@ -10,13 +10,12 @@ bool ifUserExist = false;
 struct client {
   string user;
   string password;
-} ;
+};
 
 bool TcreateUser::checkIfUserExist(string username){
 
     //check in db
     string usr;
-    cout << "LZ " << username << endl;
 
     /* chceck allUsers from DB
     *  DB conectivity need to be done here

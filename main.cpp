@@ -7,6 +7,7 @@
 #include <iostream>
 #include "Tmenu.hpp"
 #include "TcreateUser.hpp"
+#include "TcheckDetails.hpp"
 
 using namespace std;
 /***********************************/
@@ -25,8 +26,6 @@ void runMenu(){
     Tmenu menu;
     menu.showMenu();
 
-    TcreateUser addUser;
-
     int choice;
     cout << " Co wybierasz? " << endl;
     cin >> choice;
@@ -34,11 +33,13 @@ void runMenu(){
     switch (choice)
     {
     case 1:
+        TcreateUser addUser;
         // Create new account.
         addUser.createUser();
         break;
     case 2:
-        cout << "2" << endl;
+        TcheckDetails checkDetails;
+        checkDetails.updateAccountData();
         break;
     case 3:
         cout << "3" << endl;
