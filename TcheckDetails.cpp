@@ -18,7 +18,6 @@ void TcheckDetails::updateAccountData()
 
     cout << "Jestes zalogowany\n";
 
-
     cout << "1. Zmień adres\n"
     "2. Zaktualizuj...\n" << endl;
     int choice;

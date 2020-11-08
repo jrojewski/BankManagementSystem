@@ -9,6 +9,7 @@ class TdbConnection
 
 public:
     sqlite3* dbAccess();
+    int checkUser(std::string);
 
 };
 

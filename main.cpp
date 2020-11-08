@@ -16,8 +16,6 @@ void runMenu();
 /***********************************/
 
 int main() {
-    TdbConnection dbConnection;
-    sqlite3* dbBank = dbConnection.dbAccess();
 
     runMenu();
 

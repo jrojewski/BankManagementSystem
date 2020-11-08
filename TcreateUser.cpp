@@ -1,7 +1,9 @@
 #include "TcreateUser.hpp"
 #include <iostream>
-//#include <curses.h>
+#include <curses.h>
 #include <string>
+#include "dbConnection.hpp"
+#include "sqlite3.h"
 
 using namespace std;
 
@@ -21,6 +23,11 @@ bool TcreateUser::checkIfUserExist(string username){
     *  DB conectivity need to be done here
     *  to check if use name is already added in DB
     */
+    TdbConnection dbConnection;
+    sqlite3* dbBank = dbConnection.dbAccess();
+    dbConnection.checkUser(username);
+
+
     if(username=="lz"){
         cout << "User already existy in Database" << endl;
         ifUserExist = true;
