@@ -1,6 +1,6 @@
 #include "TcheckDetails.hpp"
 #include <iostream>
-#include <curses.h>
+//#include <curses.h>
 #include <string>
 #include "Tlogin.hpp"
 #include "TcreateUser.hpp"

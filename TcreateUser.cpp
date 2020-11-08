@@ -1,6 +1,6 @@
 #include "TcreateUser.hpp"
 #include <iostream>
-#include <curses.h>
+//#include <curses.h>
 #include <string>
 
 using namespace std;

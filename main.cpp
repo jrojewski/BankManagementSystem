@@ -8,6 +8,7 @@
 #include "Tmenu.hpp"
 #include "TcreateUser.hpp"
 #include "TcheckDetails.hpp"
+#include "dbConnection.hpp"
 
 using namespace std;
 /***********************************/
@@ -15,6 +16,8 @@ void runMenu();
 /***********************************/
 
 int main() {
+    TdbConnection dbConnection;
+    sqlite3* dbBank = dbConnection.dbAccess();
 
     runMenu();
 
