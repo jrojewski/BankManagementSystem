@@ -3,10 +3,8 @@
 
 #include <string>
 
-
 class TcreateUser
 {
-
 public:
 
     bool checkIfUserExist(std::string);

@@ -16,25 +16,22 @@ struct client {
 
 bool TcreateUser::checkIfUserExist(string username){
 
-    //check in db
-    string usr;
-
     /* chceck allUsers from DB
     *  DB conectivity need to be done here
     *  to check if use name is already added in DB
     */
-    TdbConnection dbConnection;
-    sqlite3* dbBank = dbConnection.dbAccess();
-    dbConnection.checkUser(username);
+    dbConnection dbCon;
+    dbCon.showTable();
 
-
-    if(username=="lz"){
-        cout << "User already existy in Database" << endl;
-        ifUserExist = true;
+    //conditions to rework - not working yet
+    if( dbCon.checkIfUserExist(username);){
+        cout << "This user cannot be add" << endl;
         return true;
     }
+
     cout << "No such user in bank...\n";
 
+    dbCon.closeDB();
     return false;
 
 }

@@ -6,10 +6,15 @@ SOURCES = Tmenu.cpp main.cpp TcreateUser.cpp TcheckDetails.cpp Tlogin.cpp dbConn
 SQLITE_COMPILE_LINUX = gcc -g -c sqlite3/sqlite3.c -o sqlite3/sqlite3.o
 SQLITE_RUN_LINUX = sqlite3/sqlite3.o -I \sqlite3 -pthread -ldl
 
-main:
+make linux:
 	${SQLITE_COMPILE_LINUX}
-	g++ ${SOURCES} ${SQLITE_RUN_LINUX} -o ${COMPILE_MAIN}
+	g++ ${SOURCES} ${SQLITE_RUN_LINUX} -o ${COMPILE_MAIN} -Wwrite-strings
 	./${COMPILE_MAIN}
+
+make win:
+
+
+
 clean:
 	rm -f ${COMPILE_MAIN}
 	rm -f sqlite3/sqlite3.o
