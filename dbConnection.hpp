@@ -13,7 +13,7 @@ class dbConnection
     char *zErrMsg;
 
     // Save the result of opening the file
-    int rc;
+    int resultCode;
 
     // Saved SQL
     const char* sql;
@@ -29,12 +29,9 @@ class dbConnection
 
 public:
 	dbConnection();
-	void createTable();
-	void insertData(char*, char*);
-	void showTable();
-	void deleteRow(char*);
+	void addUser(std::string, std::string);
 	void closeDB();
-    bool checkIfUserExist(std::string);
+    //bool checkIfUserExist(std::string);
 
 };
 

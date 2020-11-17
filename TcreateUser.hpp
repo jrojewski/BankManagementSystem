@@ -7,7 +7,7 @@ class TcreateUser
 {
 public:
 
-    bool checkIfUserExist(std::string);
+    //bool checkIfUserExist(std::string);
     void createUser();
 
 };

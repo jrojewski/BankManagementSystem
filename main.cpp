@@ -28,14 +28,13 @@ void runMenu(){
     menu.showMenu();
 
     int choice;
-    cout << " Co wybierasz? " << endl;
+    cout << "How can I help you? " << endl;
     cin >> choice;
 
     switch (choice)
     {
     case 1:
         TcreateUser addUser;
-        // Create new account.
         addUser.createUser();
         break;
     case 2:

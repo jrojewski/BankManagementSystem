@@ -1,1 +1,0 @@
-/bin/c++  -g  -rdynamic CMakeFiles/Tmenu_tests.dir/Tmenu_tests.cpp.o  -o Tmenu_tests  ../lib/libgtest_maind.a ../lib/libgtestd.a ../libExample.a -lpthread 

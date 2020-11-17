@@ -13,11 +13,11 @@ bool Tlogin::login(){
 
     cout << "Podaj login: ";
     cin >> login;
-
+    /*
     if(user.checkIfUserExist(login)==false){
 
         return false;
-    }
+    } */
 
 
     // cout << "Password:  ";

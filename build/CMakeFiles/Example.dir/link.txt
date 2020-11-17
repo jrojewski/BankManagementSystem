@@ -1,2 +1,0 @@
-/bin/ar qc libExample.a  CMakeFiles/Example.dir/main.cpp.o CMakeFiles/Example.dir/Tmenu.cpp.o
-/bin/ranlib libExample.a

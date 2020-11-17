@@ -1,52 +1,30 @@
 #include "TcreateUser.hpp"
 #include <iostream>
-#include <curses.h>
+//#include <curses.h>
 #include <string>
 #include "dbConnection.hpp"
-#include "sqlite3.h"
+#include "sqlite3/sqlite3.h"
 
 using namespace std;
 
 bool ifUserExist = false;
 
 struct client {
-  string user;
+  string login;
   string password;
 };
-
-bool TcreateUser::checkIfUserExist(string username){
-
-    /* chceck allUsers from DB
-    *  DB conectivity need to be done here
-    *  to check if use name is already added in DB
-    */
-    dbConnection dbCon;
-    dbCon.showTable();
-
-    //conditions to rework - not working yet
-    if( dbCon.checkIfUserExist(username);){
-        cout << "This user cannot be add" << endl;
-        return true;
-    }
-
-    cout << "No such user in bank...\n";
-
-    dbCon.closeDB();
-    return false;
-
-}
 
 void TcreateUser::createUser(){
 
     client client;
 
     cout << "Insert new Username: ";
-    cin >> client.user;
+    cin >> client.login;
 
-    // if user exists, do not ask for password for new user
+    /* if user exists, do not ask for password for new user
     if(TcreateUser::checkIfUserExist(client.user)){
         return;
-    }
+    } */
 
     string pw;
     do
@@ -58,13 +36,37 @@ void TcreateUser::createUser(){
 
         if(client.password != pw){
             cout << "wrong passwords\nTry again\n";
-        }else if(client.password == client.user){
+        }else if(client.password == client.login){
             cout << "Password can't be the same as an user name\n";
         }
-    } while ( (client.password != pw) || (client.user == client.password) );
+    } while ( (client.password != pw) || (client.login == client.password) );
 
+    dbConnection db;
+    db.addUser(client.login, client.password);
+    db.closeDB();
+    
     cout << "\nNew account has been created.\n";
-    cout << "Summary:\n\tUsername:\t " + client.user + "\n\tPassword:\t " + client.password << endl;
 }
 
+//bool TcreateUser::checkIfUserExist(string username){
+
+    /* chceck allUsers from DB
+    *  DB conectivity need to be done here
+    *  to check if use name is already added in DB
+    */
+    //dbConnection dbCon;
+    //dbCon.showTable();
+
+    //conditions to rework - not working yet
+    //if( dbCon.checkIfUserExist(username) ){
+    //    cout << "This user cannot be add" << endl;
+    //    return true;
+    //}
+
+    //cout << "No such user in bank...\n";
+
+    //dbCon.closeDB();
+    //return false;
+
+//}
 
