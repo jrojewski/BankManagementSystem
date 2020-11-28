@@ -45,7 +45,7 @@ dbConnection::dbConnection(){
 }
 
 void dbConnection::addUser(string login,string password) {
-	
+
 	string sql = "INSERT INTO test ('login', 'pass') VALUES ('";
 	sql.append(login);
 	sql.append("', '");
@@ -57,7 +57,7 @@ void dbConnection::addUser(string login,string password) {
 
 	resultCode = sqlite3_step(stmt);
 
-	sqlite3_finalize(stmt); 
+	sqlite3_finalize(stmt);
 }
 
 void dbConnection::closeDB() {

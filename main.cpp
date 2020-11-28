@@ -9,6 +9,7 @@
 #include "TcreateUser.hpp"
 #include "TcheckDetails.hpp"
 #include "dbConnection.hpp"
+#include "Tlogin.hpp"
 
 using namespace std;
 /***********************************/
@@ -25,7 +26,7 @@ int main() {
 void runMenu(){
 
     Tmenu menu;
-    menu.showMenu();
+    menu.mainMenu();
 
     int choice;
     cout << "How can I help you? " << endl;
@@ -34,27 +35,19 @@ void runMenu(){
     switch (choice)
     {
     case 1:
-        TcreateUser addUser;
-        addUser.createUser();
+        //Log in
+        Tlogin login;
+        login.login();
         break;
     case 2:
-        TcheckDetails checkDetails;
-        checkDetails.updateAccountData();
+        //Sign up
+        // TcreateUser addUser;
+        // addUser.createUser();
+        // TcheckDetails checkDetails;
+        // checkDetails.updateAccountData();
         break;
     case 3:
         cout << "3" << endl;
-        break;
-    case 4:
-        cout << "4" << endl;
-        break;
-    case 5:
-        cout << "5" << endl;
-        break;
-    case 6:
-        cout << "6" << endl;
-        break;
-    case 7:
-        cout << "7" << endl;
         break;
 
     default:

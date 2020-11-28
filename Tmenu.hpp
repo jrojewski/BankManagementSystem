@@ -8,7 +8,11 @@ class Tmenu
 
 public:
 
-    void showMenu();
+    void mainMenu();
+    void loggedMenu();
+    void accountEdit();
+    void transactionHistoru();
+    void selfTransactions();
 
 };
 
