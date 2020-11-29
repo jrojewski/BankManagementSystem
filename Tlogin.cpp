@@ -4,25 +4,32 @@
 
 using namespace std;
 
+bool RC_ERR = false;
+
 bool Tlogin::login(){
 
     TcreateUser user;
     string login, pass;
+    int loginAttemtsCounter = 0;
 
-    cout << "tLogin LZLZLZ" << endl;
+    //login check in DB
+    do
+    {
+        cout << "Your Login: ";
+        cin >> login;
+        loginAttemtsCounter++;
+        if(loginAttemtsCounter==3){
+            cout << "Ops, something went wrong...\n";
+            RC_ERR = true;
+        }
+    // } while (!user.checkIfUserExist(login));
+    } while (loginAttemtsCounter<3 || user.checkIfUserExist(login));
 
-    cout << "Podaj login: ";
-    cin >> login;
-    /*
-    if(user.checkIfUserExist(login)==false){
-
+    if(RC_ERR){
         return false;
-    } */
+    }
 
-
-    // cout << "Password:  ";
-    // cin >> pass;
-
+    //Password check
     int attempts = 0;
     do
     {
@@ -30,11 +37,11 @@ bool Tlogin::login(){
         cin >> pass;
         attempts++;
 
-        if(attempts == 3){
+        if(attempts == 3)
+        {
             return false;
         }
-        cout << "Wrong pass... You have "<< 3 - attempts << " more\n";
-
+        cout << "Wrong password... You have "<< 3 - attempts << " more\n";
     } while (pass != "lz");
 
     return true;

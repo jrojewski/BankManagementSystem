@@ -30,6 +30,7 @@ class dbConnection
 public:
 	dbConnection();
 	void addUser(std::string, std::string);
+    bool findUser(std::string);
 	void closeDB();
     //bool checkIfUserExist(std::string);
 

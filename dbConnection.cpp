@@ -4,7 +4,6 @@
 #include "dbConnection.hpp"
 #include "sqlite3/sqlite3.h"
 //#include <curses.h>
-#include <stdio.h>
 
 using namespace std;
 
@@ -58,6 +57,27 @@ void dbConnection::addUser(string login,string password) {
 	resultCode = sqlite3_step(stmt);
 
 	sqlite3_finalize(stmt);
+}
+
+bool dbConnection::findUser(string login) {
+
+	string query =  "SELECT * FROM users WHERE login='" + login + "' ";
+	resultCode = sqlite3_prepare_v2(db, query.c_str(), -1, &stmt, NULL);
+
+	if(resultCode == SQLITE_OK)
+    {
+       if (sqlite3_step(stmt) == SQLITE_ROW)
+       {
+          cout << "Record found" << endl;
+       }
+       else
+       {
+          cout << "Record not found" << endl;
+		  return false;
+       }
+    }
+    sqlite3_finalize(stmt);
+	return true;
 }
 
 void dbConnection::closeDB() {

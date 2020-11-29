@@ -29,7 +29,6 @@ void runMenu(){
     menu.mainMenu();
 
     int choice;
-    cout << "How can I help you? " << endl;
     cin >> choice;
 
     switch (choice)
@@ -37,7 +36,10 @@ void runMenu(){
     case 1:
         //Log in
         Tlogin login;
-        login.login();
+        if(login.login())
+        {
+            menu.loggedMenu();
+        }
         break;
     case 2:
         //Sign up
@@ -47,9 +49,8 @@ void runMenu(){
         // checkDetails.updateAccountData();
         break;
     case 3:
-        cout << "3" << endl;
+        cout << "Program closed." << endl;
         break;
-
     default:
         cout << "Missing option - try again!\n";
         break;
