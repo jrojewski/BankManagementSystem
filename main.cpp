@@ -43,8 +43,8 @@ void runMenu(){
         break;
     case 2:
         //Sign up
-        TcreateUser addUser;
-        addUser.createUser();
+        // TcreateUser addUser;
+        // addUser.createUser();
         // TcheckDetails checkDetails;
         // checkDetails.updateAccountData();
         break;
