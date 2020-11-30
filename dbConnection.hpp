@@ -29,12 +29,8 @@ class dbConnection
 
 public:
 	dbConnection();
-<<<<<<< HEAD
 	void addUser(std::string, std::string);
     bool findUser(std::string);
-=======
-	void addUser(std::string, std::string, std::string, std::string);
->>>>>>> 0cbb94e (createUser and addUser methods updated)
 	void closeDB();
     //bool checkIfUserExist(std::string);
 
