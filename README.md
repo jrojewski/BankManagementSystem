@@ -1,5 +1,7 @@
 ReadMe
 
+devel-1.0 added.
+
 SQLITE3
 Compile with this command:
 

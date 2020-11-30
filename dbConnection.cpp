@@ -43,9 +43,13 @@ dbConnection::dbConnection(){
 
 }
 
-void dbConnection::addUser(string login,string password) {
+void dbConnection::addUser(string firstName,string lastName, string login, string password) {
 
-	string sql = "INSERT INTO test ('login', 'pass') VALUES ('";
+	string sql = "INSERT INTO users ('FirstName', 'LastName', 'Login', 'Password') VALUES ('";
+	sql.append(firstName);
+	sql.append("', '");
+	sql.append(lastName);
+	sql.append("', '");
 	sql.append(login);
 	sql.append("', '");
 	sql.append(password);
