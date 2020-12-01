@@ -1,6 +1,6 @@
 ReadMe
 
-test 
+test_lz
 
 SQLITE3
 Compile with this command:
