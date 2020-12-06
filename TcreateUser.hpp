@@ -8,7 +8,9 @@ class TcreateUser
 public:
 
     bool checkIfUserExist(std::string);
+    bool checkPassword(std::string, std::string);
     void createUser();
+    void showUserNameSurname(std::string);
 
 };
 

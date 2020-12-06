@@ -32,7 +32,7 @@ public:
 	void addUser(std::string, std::string, std::string, std::string);
     bool findUser(std::string);
 	void closeDB();
-    //bool checkIfUserExist(std::string);
+    bool checkUsersPassword(std::string, std::string);
 
 };
 

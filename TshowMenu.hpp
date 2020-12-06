@@ -1,22 +1,19 @@
-#ifndef TMENU_H
-#define TMENU_H
+#ifndef TSHOWMENU_H
+#define TSHOWMENU_H
 
 #include <string>
 
-class Tmenu
+class TshowMenu
 {
 
 public:
 
-    void mainMenu();
-    void loggedMenu();
+    void showMainMenu();
+    void showLoggedMenu();
     void accountEdit();
     void transactionHistoru();
     void selfTransactions();
 
 };
-
-
-
 
 #endif

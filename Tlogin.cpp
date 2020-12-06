@@ -4,45 +4,63 @@
 
 using namespace std;
 
-bool RC_ERR = false;
+bool isUser;
+bool isPasswordCorrect;
 
 bool Tlogin::login(){
 
     TcreateUser user;
     string login, pass;
     int loginAttemtsCounter = 0;
+    int passAttemtsCounter = 0;
+
+    isUser = false;
+    isPasswordCorrect = false;
 
     //login check in DB
     do
     {
         cout << "Your Login: ";
         cin >> login;
+
+        if(user.checkIfUserExist(login)){
+            cout << "Correct Login\n";
+            isUser = true;
+        }
+
         loginAttemtsCounter++;
         if(loginAttemtsCounter==3){
-            cout << "Ops, something went wrong...\n";
-            RC_ERR = true;
+            cout << "\nOps, something went wrong...\n\n";
+            return false;
         }
-    // } while (!user.checkIfUserExist(login));
-    } while (loginAttemtsCounter<3 || user.checkIfUserExist(login));
-
-    if(RC_ERR){
-        return false;
-    }
+    } while (isUser != true);
 
     //Password check
-    int attempts = 0;
     do
     {
         cout << "Password:  ";
         cin >> pass;
-        attempts++;
 
-        if(attempts == 3)
+        if(user.checkPassword(login, pass))
+        {
+            isPasswordCorrect = true;
+        }
+
+        if(passAttemtsCounter == 3)
         {
             return false;
         }
-        cout << "Wrong password... You have "<< 3 - attempts << " more\n";
-    } while (pass != "lz");
 
+        if(isPasswordCorrect==false)
+        {
+            cout << "Wrong password... You have "<< 3 - passAttemtsCounter << " more\n";
+            passAttemtsCounter++;
+        }
+
+    } while (isPasswordCorrect != true);
+
+    system("clear");
+    cout << "Hello " << login << endl;
+    cout << "You are loged in\n";
     return true;
 }
