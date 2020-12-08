@@ -1,11 +1,11 @@
-#include "Tmenu.hpp"
+#include "TshowMenu.hpp"
 #include <iostream>
 
 using namespace std;
 
 void mainMenu();
 
-void Tmenu::mainMenu()
+void TshowMenu::showMainMenu()
 {
     cout << "Customer Account Bank Management System\n\n";
 
@@ -14,7 +14,7 @@ void Tmenu::mainMenu()
     "3. Exit." << endl;
 }
 
-void Tmenu::loggedMenu()
+void TshowMenu::showLoggedMenu()
 {
     cout << "\n\n";
 
@@ -25,13 +25,13 @@ void Tmenu::loggedMenu()
     "5. Log out." << endl;
 }
 
-void Tmenu::transactionHistoru()
+void TshowMenu::transactionHistoru()
 {
     cout << "1. Show your account history\n"
     "2. Back\n" << endl;
 }
 
-void Tmenu::selfTransactions()
+void TshowMenu::selfTransactions()
 {
     cout << "1. Deposit\n"
     "2. Withdraw\n"
@@ -39,7 +39,7 @@ void Tmenu::selfTransactions()
     "4. Back\n" << endl;
 }
 
-void Tmenu::accountEdit()
+void TshowMenu::accountEdit()
 {
     cout << "1. Password change\n"
     "3. Back\n" << endl;

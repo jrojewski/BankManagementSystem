@@ -40,12 +40,12 @@ void TcreateUser::createUser(){
     }
     ss >> client.numberLogin;
     client.login = client.firstName.substr(0,3) + client.lastName.substr(0,3) + client.numberLogin;
-    
+
     // if user exists, do not ask for password for new user
     /*
     if ( TcreateUser::checkIfUserExist(client.firstName, client.lastName ) ) {
         client.firstName.substr()
-        
+
         return;
     }*/
 
@@ -74,12 +74,30 @@ void TcreateUser::createUser(){
 bool TcreateUser::checkIfUserExist(string username){
 
     dbConnection dbCon;
-    if(!dbCon.findUser(username)){
-        cout << "Sorry, user not found" << endl;
+    if(dbCon.findUser(username)){
+        cout << "User founded not found" << endl;
+        dbCon.closeDB();
+        return true;
+    }
+
+    printf("User NOT found <%s:%d>\n", __FUNCTION__, __LINE__);
+    dbCon.closeDB();
+    return false;
+
+}
+
+bool TcreateUser::checkPassword(string username, string password){
+
+    dbConnection dbCon;
+
+    if(!dbCon.checkUsersPassword(username, password)){
+        dbCon.closeDB();
         return false;
     }
 
     dbCon.closeDB();
     return true;
+
 }
+
 

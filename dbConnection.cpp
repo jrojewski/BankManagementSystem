@@ -65,7 +65,7 @@ void dbConnection::addUser(string firstName,string lastName, string login, strin
 
 bool dbConnection::findUser(string login) {
 
-	string query =  "SELECT * FROM users WHERE login='" + login + "' ";
+	string query =  "SELECT * FROM users WHERE Login='" + login + "' ";
 	resultCode = sqlite3_prepare_v2(db, query.c_str(), -1, &stmt, NULL);
 
 	if(resultCode == SQLITE_OK)
@@ -77,11 +77,39 @@ bool dbConnection::findUser(string login) {
        else
        {
           cout << "Record not found" << endl;
+          sqlite3_finalize(stmt);
 		  return false;
        }
     }
     sqlite3_finalize(stmt);
 	return true;
+}
+
+bool dbConnection::checkUsersPassword(string login, string pass){
+
+	cout << "Login: " << login << endl;
+    cout << "Pass: " << pass << endl;
+
+    string query =  "SELECT * FROM users WHERE Login='" + login + "' AND Password = '"+ pass + "'";
+	resultCode = sqlite3_prepare_v2(db, query.c_str(), -1, &stmt, NULL);
+
+    cout << "Result: " <<  resultCode << endl;
+	if(resultCode == SQLITE_OK)
+    {
+       if (sqlite3_step(stmt) == SQLITE_ROW)
+       {
+            cout << "Password record found" << endl;
+            printf("Password record found  <%s:%d>", __FUNCTION__ , __LINE__);
+       }
+       else
+       {
+            printf("Password not match: login:%s password = %s <%s:%d>\n", login,  pass, __FUNCTION__, __LINE__);
+		    return false;
+       }
+    }
+    sqlite3_finalize(stmt);
+	return true;
+
 }
 
 void dbConnection::closeDB() {
