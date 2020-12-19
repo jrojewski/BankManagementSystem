@@ -59,9 +59,9 @@ void TcreateUser::createUser(){
 
         if(client.password != pw){
             cout << "wrong passwords\nTry again\n";
-        }   //else if(client.password == client.login){
-            //   cout << "Password can't be the same as an user name\n";
-            //}
+        }   else if(client.password == client.login){
+               cout << "Password can't be the same as an user name\n";
+            }
     } while ( (client.password != pw) || (client.login == client.password) );
 
     dbConnection db;
