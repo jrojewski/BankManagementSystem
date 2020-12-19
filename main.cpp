@@ -8,9 +8,6 @@
 #include "TrunMenu.hpp"
 
 using namespace std;
-/***********************************/
-void runMenu();
-/***********************************/
 
 int main() {
 

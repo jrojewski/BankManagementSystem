@@ -11,7 +11,7 @@ public:
     void showMainMenu();
     void showLoggedMenu();
     void accountEdit();
-    void transactionHistoru();
+    void transactionHistory();
     void selfTransactions();
 
 };

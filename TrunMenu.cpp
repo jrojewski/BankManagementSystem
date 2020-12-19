@@ -32,8 +32,7 @@ void TrunMenu::runMainMenu(){
         //Sign up
         TcreateUser addUser;
         addUser.createUser();
-        // TcheckDetails checkDetails;
-        // checkDetails.updateAccountData();
+        runMainMenu();
         break;
     case 3:
         cout << "Program closed." << endl;
