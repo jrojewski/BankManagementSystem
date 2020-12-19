@@ -25,7 +25,7 @@ void TshowMenu::showLoggedMenu()
     "5. Log out." << endl;
 }
 
-void TshowMenu::transactionHistoru()
+void TshowMenu::transactionHistory()
 {
     cout << "1. Show your account history\n"
     "2. Back\n" << endl;

@@ -61,6 +61,6 @@ bool Tlogin::login(){
 
     system("clear");
     cout << "Hello " << login << endl;
-    cout << "You are loged in\n";
+    cout << "You are logged in\n";
     return true;
 }

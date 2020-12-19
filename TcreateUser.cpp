@@ -31,23 +31,21 @@ void TcreateUser::createUser(){
     cin >> client.lastName;
 
     // creating client's login - make a method later
+    // loop added - check of login in DB
     int tmp;
     stringstream ss;
-    srand (time(NULL));
-    for( int i = 0; i < 6; i++) {
-        tmp = rand() % 10;
-        ss << tmp;
-    }
-    ss >> client.numberLogin;
-    client.login = client.firstName.substr(0,3) + client.lastName.substr(0,3) + client.numberLogin;
-
-    // if user exists, do not ask for password for new user
-    /*
-    if ( TcreateUser::checkIfUserExist(client.firstName, client.lastName ) ) {
-        client.firstName.substr()
-
-        return;
-    }*/
+    bool loginCheck;    
+    do
+    {
+        srand (time(NULL));
+        for( int i = 0; i < 6; i++) {
+            tmp = rand() % 10;
+            ss << tmp;
+        }
+        ss >> client.numberLogin;
+        client.login = client.firstName.substr(0,3) + client.lastName.substr(0,3) + client.numberLogin;
+        loginCheck = checkIfUserExist(client.login);
+    } while ( loginCheck );
 
     string pw;
     do
@@ -59,9 +57,9 @@ void TcreateUser::createUser(){
 
         if(client.password != pw){
             cout << "wrong passwords\nTry again\n";
-        }   //else if(client.password == client.login){
-            //   cout << "Password can't be the same as an user name\n";
-            //}
+        } else if(client.password == client.login) {
+            cout << "Password can't be the same as an user name\n";
+        }
     } while ( (client.password != pw) || (client.login == client.password) );
 
     dbConnection db;
@@ -75,7 +73,7 @@ bool TcreateUser::checkIfUserExist(string username){
 
     dbConnection dbCon;
     if(dbCon.findUser(username)){
-        cout << "User founded not found" << endl;
+        cout << "User founded" << endl;
         dbCon.closeDB();
         return true;
     }
