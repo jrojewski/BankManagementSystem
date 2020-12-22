@@ -33,6 +33,7 @@ public:
     bool findUser(std::string);
 	void closeDB();
     bool checkUsersPassword(std::string, std::string);
+    double checkCurrentBalance(std::string);
 
 };
 
