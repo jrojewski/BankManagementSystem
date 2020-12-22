@@ -43,10 +43,13 @@ void TcreateUser::createUser(){
             ss << tmp;
         }
         ss >> client.numberLogin;
-        client.login = client.firstName.substr(0,3) + client.lastName.substr(0,3) + client.numberLogin;
+        // Comment below for development purpose
+        //client.login = client.firstName.substr(0,3) + client.lastName.substr(0,3) + client.numberLogin;
+        client.login = client.firstName;
         loginCheck = checkIfUserExist(client.login);
     } while ( loginCheck );
 
+    cout << "LZ---------------\n";
     string pw;
     do
     {
@@ -81,7 +84,6 @@ bool TcreateUser::checkIfUserExist(string username){
     printf("User NOT found <%s:%d>\n", __FUNCTION__, __LINE__);
     dbCon.closeDB();
     return false;
-
 }
 
 bool TcreateUser::checkPassword(string username, string password){

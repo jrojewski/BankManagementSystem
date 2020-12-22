@@ -119,7 +119,7 @@ double dbConnection::checkCurrentBalance(string login){
 
 	if(resultCode != SQLITE_OK)
     {
-        printf("SOmething went wrong...<%s:%d>", __FUNCTION__, __LINE__);
+        printf("Something went wrong...<File:%s, Fun:%s, Line:%d>", __FILE__, __FUNCTION__, __LINE__);
         return -1;
     }
 
