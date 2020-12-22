@@ -6,6 +6,17 @@ using namespace std;
 
 bool isUser;
 bool isPasswordCorrect;
+string logUser;
+
+void Tlogin::setLogin(string l)
+{
+        logUser = l;
+}
+
+string Tlogin::getLogin()
+{
+        return logUser;
+}
 
 bool Tlogin::login(){
 
@@ -62,5 +73,7 @@ bool Tlogin::login(){
     system("clear");
     cout << "Hello " << login << endl;
     cout << "You are logged in\n";
+
+    setLogin(login);
     return true;
 }

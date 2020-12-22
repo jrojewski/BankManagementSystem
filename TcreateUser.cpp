@@ -34,7 +34,7 @@ void TcreateUser::createUser(){
     // loop added - check of login in DB
     int tmp;
     stringstream ss;
-    bool loginCheck;    
+    bool loginCheck;
     do
     {
         srand (time(NULL));

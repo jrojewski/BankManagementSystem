@@ -8,14 +8,9 @@
 class TuserLogged
 {
 
-    TshowMenu showMenu;
-    TrunMenu runMenu;
-
 public:
-    TuserLogged(){
-        showMenu.showLoggedMenu();
-        runMenu.runUserLoggedMenu();
-    }
+
+    void checkCurrentBalance(std::string);
 
 };
 
