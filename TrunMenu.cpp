@@ -23,8 +23,7 @@ void TrunMenu::runMainMenu(){
         Tlogin login;
         if(login.login())
         {
-            string user = login.getLogin();
-            runMenu.runUserLoggedMenu(user);
+            runMenu.runUserLoggedMenu();
         }else{
             runMainMenu();
         }
@@ -45,13 +44,11 @@ void TrunMenu::runMainMenu(){
 }
 
 
-void TrunMenu::runUserLoggedMenu(string user){
+void TrunMenu::runUserLoggedMenu(){
 
     TrunMenu runMenu;
     TshowMenu showMenu;
     showMenu.showLoggedMenu();
-
-    TuserLogged action;
 
     int choice;
     cin >> choice;
@@ -59,8 +56,7 @@ void TrunMenu::runUserLoggedMenu(string user){
     switch (choice)
     {
     case 1:
-        action.checkCurrentBalance(user);
-        runUserLoggedMenu(user);
+        cout << "1\n";
         break;
     case 2:
         cout << "2\n";

@@ -112,27 +112,6 @@ bool dbConnection::checkUsersPassword(string login, string pass){
 
 }
 
-double dbConnection::checkCurrentBalance(string login){
-
-	string balance =  "SELECT Balance FROM users WHERE Login='" + login + "' ";
-	resultCode = sqlite3_prepare_v2(db, balance.c_str(), balance.length(), &stmt, NULL);
-
-	if(resultCode != SQLITE_OK)
-    {
-        printf("SOmething went wrong...<%s:%d>", __FUNCTION__, __LINE__);
-        return -1;
-    }
-
-    if (sqlite3_step(stmt) == SQLITE_ROW)
-    {
-        int bal = sqlite3_column_int(stmt, 0);
-        sqlite3_finalize(stmt);
-        return (double)bal;
-    }
-
-    return -1;
-}
-
 void dbConnection::closeDB() {
 
 	// Close the SQL connection
