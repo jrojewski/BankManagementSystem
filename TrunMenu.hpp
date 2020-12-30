@@ -10,7 +10,7 @@ class TrunMenu
 public:
 
     void runMainMenu();
-    void runUserLoggedMenu(std::string);
+    void runUserLoggedMenu();
 };
 
 #endif
