@@ -31,7 +31,7 @@ void TshowMenu::transactionHistory()
     "2. Back\n" << endl;
 }
 
-void TshowMenu::selfTransactions()
+void TshowMenu::makeTransactions()
 {
     cout << "1. Deposit\n"
     "2. Withdraw\n"

@@ -133,6 +133,12 @@ double dbConnection::checkCurrentBalance(string login){
     return -1;
 }
 
+
+double dbConnection::depositCash(double cash){
+
+
+}
+
 void dbConnection::closeDB() {
 
 	// Close the SQL connection

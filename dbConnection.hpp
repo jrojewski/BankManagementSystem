@@ -34,6 +34,7 @@ public:
 	void closeDB();
     bool checkUsersPassword(std::string, std::string);
     double checkCurrentBalance(std::string);
+    double depositCash(double);
 
 };
 
