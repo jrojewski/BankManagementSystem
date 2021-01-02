@@ -11,9 +11,9 @@ class TuserLogged
 public:
 
     void checkCurrentBalance(std::string);
-    int transactionType();
+    void transactionType();
 
-    void cashDeposit(std::string);
+    void cashDeposit(std::string, double=0.0);
     void cashWithdraw();
     void cashTransfer();
 

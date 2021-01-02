@@ -1,12 +1,14 @@
 #Makefile
 
-COMPILE_MAIN?="main"
+COMPILE_MAIN?="bin/main"
 COMPILE_MENU?="Tmenu"
-SOURCES = TshowMenu.cpp main.cpp TcreateUser.cpp TcheckDetails.cpp Tlogin.cpp dbConnection.cpp TuserLogged.cpp TrunMenu.cpp
-SQLITE_COMPILE_LINUX = gcc -g -c sqlite3/sqlite3.c -o sqlite3/sqlite3.o
-SQLITE_COMPILE_WIN = gcc sqlite3/sqlite3.c -c -o sqlite3/sqlite3.o
-SQLITE_RUN_LINUX = sqlite3/sqlite3.o -I \sqlite3 -pthread -ldl
-SQLITE_RUN_WIN = sqlite3/sqlite3.o -I \sqlite3
+SQL_O ="bin/sqlite3.o"
+COMPILE_SQL = "include/sqlite3/sqlite3.c"
+SOURCES = src/TshowMenu.cpp src/main.cpp src/TcreateUser.cpp src/TcheckDetails.cpp src/Tlogin.cpp src/dbConnection.cpp src/TuserLogged.cpp src/TrunMenu.cpp
+SQLITE_COMPILE_LINUX = gcc -g -c ${COMPILE_SQL} -o bin/sqlite3.o
+SQLITE_COMPILE_WIN = gcc ${COMPILE_SQL} -c -o bin/sqlite3.o
+SQLITE_RUN_LINUX = bin/sqlite3.o -I \sqlite3 -pthread -ldl
+SQLITE_RUN_WIN = ${SQL_O} -I \sqlite3
 
 make linux:
 	${SQLITE_COMPILE_LINUX}
@@ -20,7 +22,7 @@ make win:
 
 clean:
 	rm -f ${COMPILE_MAIN}
-	rm -f sqlite3/sqlite3.o
+	rm -f ${SQL_O}
 dump:
 	g++ ${SOURCES}.cpp -S
 

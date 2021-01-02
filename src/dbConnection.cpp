@@ -2,7 +2,8 @@
 #include <string>
 #include <stdio.h>
 #include "dbConnection.hpp"
-#include "sqlite3/sqlite3.h"
+#include "../include/sqlite3/sqlite3.h"
+#include <math.h>
 //#include <curses.h>
 
 using namespace std;
@@ -134,9 +135,32 @@ double dbConnection::checkCurrentBalance(string login){
 }
 
 
-double dbConnection::depositCash(double cash){
+double dbConnection::depositCash(string login, double cash){
 
+    double curBalance = checkCurrentBalance(login);
 
+    double updatedBalance = curBalance + cash;
+    int rounded_up = ceilf(updatedBalance * 100) / 100;
+
+    cout << "Current balance: " << rounded_up;
+    string query =  "UPDATE users SET Balance ='" + login + "' WHERE Login='" + login + "'";
+    // string query =  "UPDATE users SET Balance ='" + rounded_up + "' WHERE Login='" + login + "'";
+	resultCode = sqlite3_prepare_v2(db, query.c_str(), -1, &stmt, NULL);
+
+	if(resultCode != SQLITE_OK)
+    {
+        printf("Something went wrong...<File:%s, Fun:%s, Line:%d>", __FILE__, __FUNCTION__, __LINE__);
+        return -1;
+    }
+
+    if (sqlite3_step(stmt) == SQLITE_ROW)
+    {
+        // int bal = sqlite3_column_int(stmt, 0);
+        // sqlite3_finalize(stmt);
+        // return (double)bal;
+    }
+
+    return rounded_up;
 }
 
 void dbConnection::closeDB() {
