@@ -113,7 +113,7 @@ bool dbConnection::checkUsersPassword(string login, string pass){
 
 }
 
-double dbConnection::checkCurrentBalance(string login){
+int dbConnection::checkCurrentBalance(string login){
 
 	string balance =  "SELECT Balance FROM users WHERE Login='" + login + "' ";
 	resultCode = sqlite3_prepare_v2(db, balance.c_str(), balance.length(), &stmt, NULL);
@@ -128,24 +128,20 @@ double dbConnection::checkCurrentBalance(string login){
     {
         int bal = sqlite3_column_int(stmt, 0);
         sqlite3_finalize(stmt);
-        return (double)bal;
+        return bal;
     }
 
     return -1;
 }
 
 
-double dbConnection::depositCash(string login, double cash){
+int dbConnection::depositCash(string login, int cash){
 
     double curBalance = checkCurrentBalance(login);
-
     double updatedBalance = curBalance + cash;
-    int rounded_up = ceilf(updatedBalance * 100) / 100;
 
-    cout << "Current balance: " << rounded_up;
-    string query =  "UPDATE users SET Balance ='" + login + "' WHERE Login='" + login + "'";
-    // string query =  "UPDATE users SET Balance ='" + rounded_up + "' WHERE Login='" + login + "'";
-	resultCode = sqlite3_prepare_v2(db, query.c_str(), -1, &stmt, NULL);
+    string query =  "UPDATE users SET Balance ='" + to_string(updatedBalance) + "' WHERE Login='" + login + "'";
+    resultCode = sqlite3_prepare_v2(db, query.c_str(), -1, &stmt, NULL);
 
 	if(resultCode != SQLITE_OK)
     {
@@ -155,12 +151,10 @@ double dbConnection::depositCash(string login, double cash){
 
     if (sqlite3_step(stmt) == SQLITE_ROW)
     {
-        // int bal = sqlite3_column_int(stmt, 0);
-        // sqlite3_finalize(stmt);
-        // return (double)bal;
+        sqlite3_finalize(stmt);
     }
 
-    return rounded_up;
+    return updatedBalance;
 }
 
 void dbConnection::closeDB() {

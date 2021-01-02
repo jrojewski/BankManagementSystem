@@ -1,5 +1,5 @@
 /*
-* Bank Managment System 
+* Bank Managment System
 * Project for developing own skills and...
 * To have fun
 */
