@@ -2,7 +2,8 @@
 #include <string>
 #include <stdio.h>
 #include "dbConnection.hpp"
-#include "sqlite3/sqlite3.h"
+#include "../include/sqlite3/sqlite3.h"
+#include <math.h>
 //#include <curses.h>
 
 using namespace std;
@@ -112,7 +113,7 @@ bool dbConnection::checkUsersPassword(string login, string pass){
 
 }
 
-double dbConnection::checkCurrentBalance(string login){
+int dbConnection::checkCurrentBalance(string login){
 
 	string balance =  "SELECT Balance FROM users WHERE Login='" + login + "' ";
 	resultCode = sqlite3_prepare_v2(db, balance.c_str(), balance.length(), &stmt, NULL);
@@ -127,10 +128,33 @@ double dbConnection::checkCurrentBalance(string login){
     {
         int bal = sqlite3_column_int(stmt, 0);
         sqlite3_finalize(stmt);
-        return (double)bal;
+        return bal;
     }
 
     return -1;
+}
+
+
+int dbConnection::depositCash(string login, int cash){
+
+    double curBalance = checkCurrentBalance(login);
+    double updatedBalance = curBalance + cash;
+
+    string query =  "UPDATE users SET Balance ='" + to_string(updatedBalance) + "' WHERE Login='" + login + "'";
+    resultCode = sqlite3_prepare_v2(db, query.c_str(), -1, &stmt, NULL);
+
+	if(resultCode != SQLITE_OK)
+    {
+        printf("Something went wrong...<File:%s, Fun:%s, Line:%d>", __FILE__, __FUNCTION__, __LINE__);
+        return -1;
+    }
+
+    if (sqlite3_step(stmt) == SQLITE_ROW)
+    {
+        sqlite3_finalize(stmt);
+    }
+
+    return updatedBalance;
 }
 
 void dbConnection::closeDB() {

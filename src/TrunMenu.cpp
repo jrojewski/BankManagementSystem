@@ -64,6 +64,8 @@ void TrunMenu::runUserLoggedMenu(string user){
         break;
     case 2:
         cout << "2\n";
+        action.transactionType();
+
         break;
     case 3:
         cout << "3\n";

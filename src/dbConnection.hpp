@@ -2,7 +2,7 @@
 #define DBCONNECTION_HPP
 
 #include <string>
-#include "sqlite3/sqlite3.h"
+#include "../include/sqlite3/sqlite3.h"
 
 class dbConnection
 {
@@ -33,7 +33,8 @@ public:
     bool findUser(std::string);
 	void closeDB();
     bool checkUsersPassword(std::string, std::string);
-    double checkCurrentBalance(std::string);
+    int checkCurrentBalance(std::string);
+    int depositCash(std::string, int);
 
 };
 

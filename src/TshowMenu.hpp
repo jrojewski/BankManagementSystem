@@ -12,7 +12,7 @@ public:
     void showLoggedMenu();
     void accountEdit();
     void transactionHistory();
-    void selfTransactions();
+    void makeTransactions();
 
 };
 

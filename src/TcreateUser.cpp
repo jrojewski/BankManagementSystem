@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include "dbConnection.hpp"
-#include "sqlite3/sqlite3.h"
+#include "../include/sqlite3/sqlite3.h"
 //#include <curses.h>
 
 using namespace std;
