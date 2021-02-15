@@ -23,6 +23,7 @@ void TuserLogged::transactionType(){
     Tlogin log;
     TshowMenu tMenu;
     TrunMenu runMenu;
+    TuserLogged userLogged;
 
     tMenu.makeTransactions();
     int choice;
@@ -32,12 +33,12 @@ void TuserLogged::transactionType(){
     switch (choice)
     {
     case 1:
-        TuserLogged::cashDeposit(user);
+        userLogged.cashDeposit(user);
         runMenu.runUserLoggedMenu(user);
         break;
     case 2:
-        /* code */
-
+        userLogged.cashWithdraw(user);
+        runMenu.runUserLoggedMenu(user);
         break;
     case 3:
         /* code */
@@ -68,3 +69,20 @@ void TuserLogged::cashDeposit(string user, int cash){
     db.closeDB();
 }
 
+void TuserLogged::cashWithdraw(string user, int cash) {
+
+    cout << "How much money would you like to withdraw?\n";
+    do{
+        cin >> cash;
+        if(cash <= 0){
+            cout << "Withdraw value must be higher than 0...\nPlease try again...:\n";
+        }
+    }while(cash <= 0);
+
+    dbConnection db;
+    db.withdrawCash(user, cash);
+    double currentBalance = db.checkCurrentBalance(user);
+    cout << "Your balance is: " << currentBalance << endl;
+
+    db.closeDB();
+}
