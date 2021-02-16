@@ -4,6 +4,7 @@
 #include "dbConnection.hpp"
 #include "../include/sqlite3/sqlite3.h"
 #include <math.h>
+#include <ctime>
 //#include <curses.h>
 
 using namespace std;
@@ -134,7 +135,6 @@ int dbConnection::checkCurrentBalance(string login){
     return -1;
 }
 
-
 int dbConnection::depositCash(string login, int cash){
 
     double curBalance = checkCurrentBalance(login);
@@ -183,6 +183,58 @@ int dbConnection::withdrawCash(string login, int cash){
 
     return updatedBalance;
 }
+
+int dbConnection::logTransactionEvent(string login, bool operation, int cash){
+
+    time_t now = time(0);
+    tm *ltm = localtime(&now);
+
+    char date[100];
+    char time[100];
+
+    strftime(date, sizeof(date), "%a %d %b %Y", ltm);
+    strftime(time, sizeof(time), "%H:%M:%S", ltm);
+
+    cout << date << endl;
+    cout << time << endl;
+
+	string sql = "INSERT INTO transactions ('Login', 'TransactionType', 'TransactionValue', 'OperationTime', 'OperationDate') VALUES ('";
+        sql.append(login);
+        sql.append("', '");
+        sql.append(to_string(operation));
+        sql.append("', '");
+        sql.append(to_string(cash));
+        sql.append("', '");
+        sql.append(time);
+        sql.append("', '");
+        sql.append(date);
+        sql.append("');");
+	cout << sql << endl; //debugString
+
+    sqlite3_prepare_v2(db, sql.c_str(), sql.length(), &stmt, NULL);
+	resultCode = sqlite3_step(stmt);
+	sqlite3_finalize(stmt);
+
+    return 0;
+}
+
+int dbConnection::showTransactionEvent(string login){
+
+	string  query =  "SELECT TransactionType, TransactionValue, OperationTime, OperationDate FROM transactions WHERE Login='" + login + "' ";
+	// resultCode = sqlite3_prepare_v2(db, balance.c_str(), balance.length(), &stmt, NULL);
+
+    resultCode = sqlite3_exec(db, query.c_str(), callback, 0, &zErrMsg);
+
+    if( resultCode != SQLITE_OK ) {
+       fprintf(stderr, "Error: %s\n", zErrMsg);
+       sqlite3_free(zErrMsg);
+    } else {
+       fprintf(stdout, "Success\n");
+    }
+
+    return 0;
+}
+
 
 void dbConnection::closeDB() {
 
