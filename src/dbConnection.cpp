@@ -157,6 +157,33 @@ int dbConnection::depositCash(string login, int cash){
     return updatedBalance;
 }
 
+int dbConnection::withdrawCash(string login, int cash){
+    
+    double curBalance = checkCurrentBalance(login);
+    double updatedBalance = curBalance - cash;
+
+    if ( updatedBalance < 0 ) {
+        printf("You can't have negative balance after withdrawal!\n");
+        return -1;
+    }
+
+    string query =  "UPDATE users SET Balance ='" + to_string(updatedBalance) + "' WHERE Login='" + login + "'";
+    resultCode = sqlite3_prepare_v2(db, query.c_str(), -1, &stmt, NULL);
+
+	if(resultCode != SQLITE_OK)
+    {
+        printf("Something went wrong...<File:%s, Fun:%s, Line:%d>", __FILE__, __FUNCTION__, __LINE__);
+        return -1;
+    }
+
+    if (sqlite3_step(stmt) == SQLITE_ROW)
+    {
+        sqlite3_finalize(stmt);
+    }
+
+    return updatedBalance;
+}
+
 void dbConnection::closeDB() {
 
 	// Close the SQL connection

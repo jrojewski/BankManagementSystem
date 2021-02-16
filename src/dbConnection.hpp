@@ -35,6 +35,7 @@ public:
     bool checkUsersPassword(std::string, std::string);
     int checkCurrentBalance(std::string);
     int depositCash(std::string, int);
+    int withdrawCash(std::string, int);
 
 };
 

@@ -14,7 +14,7 @@ public:
     void transactionType();
 
     void cashDeposit(std::string, int=0);
-    void cashWithdraw();
+    void cashWithdraw(std::string, int=0);
     void cashTransfer();
 
 };
