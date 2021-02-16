@@ -64,7 +64,7 @@ void TuserLogged::cashDeposit(string user, int cash){
     bool deposit = 1;
     dbConnection db;
     db.depositCash(user, cash);
-    db.logTransactionEvent(user, deposit, cash);
+    db.logTransactionEvent(user, true, cash);
     double currentBalance = db.checkCurrentBalance(user);
     cout << "Your balance is: " << currentBalance << endl;
 
@@ -83,6 +83,7 @@ void TuserLogged::cashWithdraw(string user, int cash) {
 
     dbConnection db;
     db.withdrawCash(user, cash);
+    db.logTransactionEvent(user, false, cash);
     double currentBalance = db.checkCurrentBalance(user);
     cout << "Your balance is: " << currentBalance << endl;
 

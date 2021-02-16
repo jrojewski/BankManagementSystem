@@ -158,7 +158,7 @@ int dbConnection::depositCash(string login, int cash){
 }
 
 int dbConnection::withdrawCash(string login, int cash){
-    
+
     double curBalance = checkCurrentBalance(login);
     double updatedBalance = curBalance - cash;
 
@@ -188,20 +188,22 @@ int dbConnection::logTransactionEvent(string login, bool operation, int cash){
 
     time_t now = time(0);
     tm *ltm = localtime(&now);
-
     char date[100];
     char time[100];
-
     strftime(date, sizeof(date), "%a %d %b %Y", ltm);
     strftime(time, sizeof(time), "%H:%M:%S", ltm);
 
-    cout << date << endl;
-    cout << time << endl;
+    string oper = "";
+    if(operation){
+        oper = "deposit";
+    }else{
+        oper = "withdraw";
+    }
 
 	string sql = "INSERT INTO transactions ('Login', 'TransactionType', 'TransactionValue', 'OperationTime', 'OperationDate') VALUES ('";
         sql.append(login);
         sql.append("', '");
-        sql.append(to_string(operation));
+        sql.append(oper);
         sql.append("', '");
         sql.append(to_string(cash));
         sql.append("', '");
@@ -209,7 +211,6 @@ int dbConnection::logTransactionEvent(string login, bool operation, int cash){
         sql.append("', '");
         sql.append(date);
         sql.append("');");
-	cout << sql << endl; //debugString
 
     sqlite3_prepare_v2(db, sql.c_str(), sql.length(), &stmt, NULL);
 	resultCode = sqlite3_step(stmt);
