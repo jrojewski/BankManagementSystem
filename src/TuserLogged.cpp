@@ -33,7 +33,7 @@ void TuserLogged::transactionType(){
     switch (choice)
     {
     case 1:
-        userLogged.cashDeposit(user);
+        cashDeposit(user);
         runMenu.runUserLoggedMenu(user);
         break;
     case 2:
@@ -61,8 +61,10 @@ void TuserLogged::cashDeposit(string user, int cash){
         }
     }while(cash <= 0);
 
+    bool deposit = 1;
     dbConnection db;
     db.depositCash(user, cash);
+    db.logTransactionEvent(user, true, cash);
     double currentBalance = db.checkCurrentBalance(user);
     cout << "Your balance is: " << currentBalance << endl;
 
@@ -81,8 +83,22 @@ void TuserLogged::cashWithdraw(string user, int cash) {
 
     dbConnection db;
     db.withdrawCash(user, cash);
+    db.logTransactionEvent(user, false, cash);
     double currentBalance = db.checkCurrentBalance(user);
     cout << "Your balance is: " << currentBalance << endl;
 
     db.closeDB();
 }
+
+void TuserLogged::transactionHistory(string user){
+
+    // system("clear");
+    dbConnection db;
+    cout << "Dear " << user << "...\n";
+    cout << "Your account history: \n" << endl;
+    int his = db.showTransactionEvent(user);
+    // cout << his << endl;
+    db.closeDB();
+
+}
+
