@@ -23,7 +23,6 @@ void TuserLogged::transactionType(){
     Tlogin log;
     TshowMenu tMenu;
     TrunMenu runMenu;
-    // TuserLogged userLogged;
 
     tMenu.makeTransactions();
     int choice;
@@ -63,7 +62,6 @@ void TuserLogged::cashDeposit(string user, int cash){
 
     dbConnection db;
     db.depositCash(user, cash);
-    db.logTransactionEvent(user, true, cash);
     double currentBalance = db.checkCurrentBalance(user);
     cout << "Your balance is: " << currentBalance << endl;
 
@@ -82,7 +80,6 @@ void TuserLogged::cashWithdraw(string user, int cash) {
 
     dbConnection db;
     db.withdrawCash(user, cash);
-    db.logTransactionEvent(user, false, cash);
     double currentBalance = db.checkCurrentBalance(user);
     cout << "Your balance is: " << currentBalance << endl;
 
