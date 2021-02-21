@@ -17,6 +17,7 @@ public:
     void cashWithdraw(std::string, int=0);
     void cashTransfer();
     void transactionHistory(std::string);
+
 };
 
 #endif
