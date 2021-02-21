@@ -38,7 +38,6 @@ public:
     int withdrawCash(std::string, int);
     int showTransactionEvent(std::string);
     int logTransactionEvent(std::string, bool, int=0);
-
 };
 
 #endif
