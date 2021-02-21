@@ -36,7 +36,8 @@ public:
     int checkCurrentBalance(std::string);
     int depositCash(std::string, int);
     int withdrawCash(std::string, int);
-
+    int showTransactionEvent(std::string);
+    int logTransactionEvent(std::string, bool, int=0);
 };
 
 #endif

@@ -23,7 +23,6 @@ void TuserLogged::transactionType(){
     Tlogin log;
     TshowMenu tMenu;
     TrunMenu runMenu;
-    // TuserLogged userLogged;
 
     tMenu.makeTransactions();
     int choice;
@@ -89,6 +88,7 @@ void TuserLogged::cashWithdraw(string user, int cash) {
 
 void TuserLogged::transactionHistory(string user){
 
+    // system("clear");
     dbConnection db;
     cout << "Dear " << user << "...\n";
     cout << "Your account history: \n" << endl;

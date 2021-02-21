@@ -231,7 +231,8 @@ int dbConnection::showTransactionEvent(string login){
 	string  query =  "SELECT TransactionType, TransactionValue, OperationTime, OperationDate FROM transactions WHERE Login='" + login + "' ";
     resultCode = sqlite3_exec(db, query.c_str(), callback, 0, &zErrMsg);
 
-    if( resultCode != SQLITE_OK ) {
+    if( resultCode != SQLITE_OK )
+    {
        fprintf(stderr, "Error: %s\n", zErrMsg);
        sqlite3_free(zErrMsg);
     } else {
