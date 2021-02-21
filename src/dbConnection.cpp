@@ -4,6 +4,7 @@
 #include "dbConnection.hpp"
 #include "../include/sqlite3/sqlite3.h"
 #include <math.h>
+#include <ctime>
 //#include <curses.h>
 
 using namespace std;
@@ -14,8 +15,8 @@ int dbConnection::callback(void *NotUsed, int argc, char **argv, char **azColNam
 	// (array) azColName: holds each column returned
 	// (array) argv: holds each value
 
-	for(int i = 0; i < argc; i++) {
-
+	for(int i = 0; i < argc; i++)
+    {
 	    //column name, value, and newline
 	    cout << azColName[i] << ": " << argv[i] << endl;
 	}
@@ -28,7 +29,8 @@ int dbConnection::callback(void *NotUsed, int argc, char **argv, char **azColNam
 }
 
 void dbConnection::checkDBErrors() {
-	if( resultCode ){
+	if( resultCode )
+    {
         // Show an error message
         cout << "DB Error: " << sqlite3_errmsg(db) << endl;
         dbConnection::closeDB();
@@ -99,8 +101,7 @@ bool dbConnection::checkUsersPassword(string login, string pass){
     {
        if (sqlite3_step(stmt) == SQLITE_ROW)
        {
-            cout << "Password record found" << endl;
-            printf("Password record found  <%s:%d>", __FUNCTION__ , __LINE__);
+            printf("Password record found  <%s:%d>\n", __FUNCTION__ , __LINE__);
        }
        else
        {
@@ -134,7 +135,6 @@ int dbConnection::checkCurrentBalance(string login){
     return -1;
 }
 
-
 int dbConnection::depositCash(string login, int cash){
 
     double curBalance = checkCurrentBalance(login);
@@ -156,6 +156,91 @@ int dbConnection::depositCash(string login, int cash){
 
     return updatedBalance;
 }
+
+int dbConnection::withdrawCash(string login, int cash){
+
+    double curBalance = checkCurrentBalance(login);
+    double updatedBalance = curBalance - cash;
+
+    if ( updatedBalance < 0 )
+    {
+        printf("You can't have negative balance after withdrawal!\n");
+        return -1;
+    }
+
+    string query =  "UPDATE users SET Balance ='" + to_string(updatedBalance) + "' WHERE Login='" + login + "'";
+    resultCode = sqlite3_prepare_v2(db, query.c_str(), -1, &stmt, NULL);
+
+	if(resultCode != SQLITE_OK)
+    {
+        printf("Something went wrong...<File:%s, Fun:%s, Line:%d>", __FILE__, __FUNCTION__, __LINE__);
+        return -1;
+    }
+
+    if (sqlite3_step(stmt) == SQLITE_ROW)
+    {
+        sqlite3_finalize(stmt);
+    }
+
+    return updatedBalance;
+}
+
+/*
+* Log to Database the operation
+*   login = user login,
+*   operation = operation type (true=cash deposit  ,false=cash withdraw),
+*   cash = transactions cash amount,
+*/
+int dbConnection::logTransactionEvent(string login, bool operation, int cash){
+
+    time_t now = time(0);
+    tm *ltm = localtime(&now);
+    char date[100];
+    char time[100];
+    strftime(date, sizeof(date), "%a %d %b %Y", ltm);
+    strftime(time, sizeof(time), "%H:%M:%S", ltm);
+
+    string oper = "";
+    if(operation){
+        oper = "deposit";
+    }else{
+        oper = "withdraw";
+    }
+
+	string sql = "INSERT INTO transactions ('Login', 'TransactionType', 'TransactionValue', 'OperationTime', 'OperationDate') VALUES ('";
+        sql.append(login);
+        sql.append("', '");
+        sql.append(oper);
+        sql.append("', '");
+        sql.append(to_string(cash));
+        sql.append("', '");
+        sql.append(time);
+        sql.append("', '");
+        sql.append(date);
+        sql.append("');");
+
+    sqlite3_prepare_v2(db, sql.c_str(), sql.length(), &stmt, NULL);
+	resultCode = sqlite3_step(stmt);
+	sqlite3_finalize(stmt);
+
+    return 0;
+}
+
+int dbConnection::showTransactionEvent(string login){
+
+	string  query =  "SELECT TransactionType, TransactionValue, OperationTime, OperationDate FROM transactions WHERE Login='" + login + "' ";
+    resultCode = sqlite3_exec(db, query.c_str(), callback, 0, &zErrMsg);
+
+    if( resultCode != SQLITE_OK ) {
+       fprintf(stderr, "Error: %s\n", zErrMsg);
+       sqlite3_free(zErrMsg);
+    } else {
+       fprintf(stdout, "Success\n");
+    }
+
+    return 0;
+}
+
 
 void dbConnection::closeDB() {
 

@@ -7,8 +7,8 @@ void mainMenu();
 
 void TshowMenu::showMainMenu()
 {
+    system("clear");
     cout << "Customer Account Bank Management System\n\n";
-
     cout << "1. Log in.\n"
     "2. Sign up.\n"
     "3. Exit." << endl;
