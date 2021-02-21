@@ -33,7 +33,7 @@ void TuserLogged::transactionType(){
     switch (choice)
     {
     case 1:
-        userLogged.cashDeposit(user);
+        cashDeposit(user);
         runMenu.runUserLoggedMenu(user);
         break;
     case 2:
